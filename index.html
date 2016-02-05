@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <link rel="stylesheet" type="text/css" href="./normalize.css">
+  <link rel="stylesheet" type="text/css" href="./skeleton.css">
+  <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&key=&language=ja"></script>
+</head>
+
+<style>
+  #map_canvas {
+      height: 800px;
+      width: 100%;
+  }
+</style>
+
+<body>
+  <h1>Tweet MAP</h1>
+  <div class="container">
+    <div class="row">
+      <div class="one column"></div>
+      <div class="ten column" id="map_canvas"></div>
+      <div class="one column"></div>
+    </div>
+    <div class="row">
+      <div class="one column"></div>
+      <div class="ten column" id="tw_canvas"></div>
+      <div class="one column"></div>
+    </div>
+  </div>
+</body>
+
+<script type="text/javascript">
+
+  var latlng = new google.maps.LatLng(35.361056,138.731918);
+  var opts = {
+   zoom: 6,
+   center: latlng,
+   mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
+
+  var canvas = document.getElementById('tw_canvas');
+  var ioSocket = io.connect('http://' + window.location.host);
+
+  ioSocket.on('connection', function() {});
+
+  ioSocket.on("tw_data", function(data) {
+
+    var div = document.createElement('div');
+    div.innerText = data.text;
+    canvas.insertBefore(div, canvas.firstChild);
+
+   });
+
+  ioSocket.on('tw_map', function (data) {
+
+    // console.log(data);
+    var tweetLocation = new google.maps.LatLng(data.lng,data.lat);
+    var marker = new google.maps.Marker({
+      position: tweetLocation,
+      map: map,
+    });
+    // setTimeout(function(){
+    //   marker.setMap(null);
+    // },600);
+
+  });
+
+</script>
+
+</html>
