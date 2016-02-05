@@ -1,6 +1,6 @@
 # node-twitter-googlemap
 
-tweet mapping app by Node.js.
+tweet mapping app by Node.js.  
 no testing, sorry.
 
 # How to Use
@@ -9,10 +9,10 @@ no testing, sorry.
 
 Node.js
 
-socket.io
+socket.io  
 twitter
 
-twitter api
+twitter api  
 google map api
 
 ## settings
@@ -21,9 +21,9 @@ google map api
 
 #### twitter api
 
-consumer_key
-consumer_secret
-access_token_key
+consumer_key  
+consumer_secret  
+access_token_key  
 access_token_secret
 
 #### google Maps api
