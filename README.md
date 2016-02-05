@@ -1,4 +1,4 @@
-# node-twitter-googlemap
+# tweet-map
 
 tweet mapping app by Node.js.  
 no testing, sorry.
