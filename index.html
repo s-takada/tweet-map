@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex,nofollow,noarchive" />
-  <link rel="stylesheet" type="text/css" href="./normalize.css">
-  <link rel="stylesheet" type="text/css" href="./skeleton.css">
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/skeleton.css">
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&key=&language=ja"></script>
 </head>
@@ -18,19 +18,26 @@
 </style>
 
 <body>
-  <h1>Tweet MAP</h1>
-  <div class="container">
-    <div class="row">
-      <div class="one column"></div>
-      <div class="ten column" id="map_canvas"></div>
-      <div class="one column"></div>
-    </div>
-    <div class="row">
-      <div class="one column"></div>
-      <div class="ten column" id="tw_canvas"></div>
-      <div class="one column"></div>
+
+  <div class="section header">
+    <div class="container">
+      <h3>Tweet Map</h3>
+      <p>Twitter Stream API 'statuses/filter' data mapping to Google MAP API.</p>
     </div>
   </div>
+
+  <div class="section map">
+    <div class="container">
+      <div class="column" id="map_canvas"></div>
+    </div>
+  </div>
+
+  <div class="section tweet">
+    <div class="container">
+      <div class="ten column" id="tw_canvas"></div>
+    </div>
+  </div>
+
 </body>
 
 <script type="text/javascript">
