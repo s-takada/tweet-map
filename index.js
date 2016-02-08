@@ -70,6 +70,7 @@ io.sockets.on('connection', function(socket) {
     client.stream( 'statuses/filter', {　locations : '132.2,29.9,146.2,39.0,138.4,33.5,146.1,46.20' }, function(s) {
       stream = s;
       s.on('data', function( data ) {
+        console.log(data);
         if (data.coordinates) {
           if (data.coordinates !== null) {
             var outputPoint = {"lat": data.coordinates.coordinates[0], "lng": data.coordinates.coordinates[1]};
@@ -77,6 +78,8 @@ io.sockets.on('connection', function(socket) {
             io.sockets.emit('tw_map', outputPoint);
             io.sockets.emit('tw_data', data);
           }
+        } else {
+          // io.sockets.emit('tw_data', data);
         }
       });
     });

@@ -12,8 +12,13 @@
 
 <style>
   #map_canvas {
-      height: 800px;
-      width: 100%;
+    height: 800px;
+    width: 100%;
+  }
+
+  #tw_canvas {
+    height: 800px;
+    overflow: scroll;
   }
 </style>
 
@@ -58,7 +63,30 @@
   ioSocket.on("tw_data", function(data) {
 
     var div = document.createElement('div');
-    div.innerText = data.text;
+
+    var prof_url = document.createElement('a');
+    prof_url.setAttribute('href', 'https://twitter.com/' + data.user.screen_name);
+    prof_url.setAttribute('target', '_blank');
+
+    var img = document.createElement('img');
+    img.setAttribute('src', data.user.profile_image_url_https);
+
+    var name = document.createElement('string');
+    name.innerText = data.user.name;
+
+    var account_name = document.createElement('span');
+    account_name.innerText = '@' + data.user.screen_name;
+
+    var text = document.createElement('p');
+    text.innerText = data.text;
+
+    prof_url.appendChild(img);
+    prof_url.appendChild(name);
+    prof_url.appendChild(account_name);
+
+    div.appendChild(prof_url);
+    div.appendChild(text);
+
     canvas.insertBefore(div, canvas.firstChild);
 
    });
