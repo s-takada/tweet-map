@@ -14,7 +14,7 @@ var stream = null;
 
 var server = http.createServer(requestListener);
 server.listen((process.env.PORT || 3000), function() {
-  console.log('Server Starting !!! '(process.env.PORT || 3000));
+  console.log('Server Starting !!! ' + (process.env.PORT || 3000));
 });
 
 function requestListener(req, res) {
