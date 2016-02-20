@@ -1,5 +1,7 @@
 # tweet-map
 
+[![Join the chat at https://gitter.im/s-takada/tweet-map](https://badges.gitter.im/s-takada/tweet-map.svg)](https://gitter.im/s-takada/tweet-map?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 tweet mapping app by Node.js.  
 no testing, sorry.
 
